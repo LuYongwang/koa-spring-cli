@@ -1,0 +1,120 @@
+#!/usr/bin/env node
+
+/**
+ * Start TimeStamp
+ */
+const startTimeStamp = new Date().getTime();
+const logger = console;
+
+/**
+ * Module dependencies.
+ */
+require("@babel/register");
+require("@babel/polyfill");
+
+const app = require('../app');
+const http = require('http');
+
+const ip = require('ip')
+
+/**
+ * Get port from environment and store in Express.
+ */
+const host = ip.address();
+const port = normalizePort(process.env.PORT || 3000);
+/**
+ * Create HTTP server.
+ */
+const server = http.createServer(app.callback());
+
+const app_version = process.env.npm_package_version || "1.0.0";
+const node_version = process.version;
+
+logger.log("  .   ____          _            __ _ _\n" +
+    " /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\n" +
+    "( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\\n" +
+    " \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )\n" +
+    "  '  |____| .__|_| |_|_| |_\\__, | / / / /\n" +
+    " =========|_|==============|___/=/_/_/_/");
+logger.log(
+    ":: Application\t::\tv" + app_version + "\n" +
+    ":: NodeJS\t::\t" + node_version + "\n" +
+    ":: Author\t::\t" + (process.env.npm_package_author_name || "")
+);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(port);
+
+
+server.on('error', onError);
+server.on('listening', onListening);
+server.on('close', onCloseServer);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+    const port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    const bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+async function onListening() {
+    logger.log(
+        ":: Running\t::\t" + 'http://' + host + ':' + port
+    );
+    // 启动耗时
+    logger.log(
+        ":: StartUp\t::\t" + ((new Date().getTime() - startTimeStamp) / 1000) + "s"
+    )
+}
+
+async function onCloseServer() {
+    // 服务下线
+    logger.info("Server down successfully!!!")
+}

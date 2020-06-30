@@ -1,0 +1,27 @@
+{
+  "name": "koa-spring-cli",
+  "version": "1.0.0",
+  "description": "一个 Koa 类 Spring 脚手架",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./bin/index"
+  },
+  "bin": {
+    "koa-spring-cli": "./bin/index"
+  },
+  "keywords": [
+    "koa2",
+    "koa2-cli",
+    "cli",
+    "koa",
+    "koa-cli",
+    "spring-cli"
+  ],
+  "author": "yongwang.lu@qq.com",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^5.1.0",
+    "fs-extra": "^9.0.1"
+  }
+}
