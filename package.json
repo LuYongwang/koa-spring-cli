@@ -19,6 +19,9 @@
   ],
   "author": "yongwang.lu@qq.com",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
