@@ -1,6 +1,6 @@
 {
   "name": "koa-spring-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一个 Koa 类 Spring 脚手架",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
