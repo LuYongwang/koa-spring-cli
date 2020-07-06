@@ -1,6 +1,6 @@
 # koa-spring-cli
 
-A simple CLI for scaffolding koa2.js projects Like SpringMvc.
+A simple CLI for scaffolding koa2.js projects like SpringMvc.
 
 ### Installation
 
