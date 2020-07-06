@@ -1,7 +1,7 @@
 /**
  * Demo
  */
-import {RestController, RequestMapping, RequestMethod} from "../framework/handler_mapping";
+import {RestController, RequestMapping, RequestMethod} from 'koa-spring-web'
 
 @RestController({prefix: '/'})
 class UserController {

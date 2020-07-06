@@ -1,7 +1,7 @@
 /**
  * Demo
  */
-import {RestController, RequestMapping, RequestMethod} from "../framework/handler_mapping";
+import {RestController, RequestMapping, RequestMethod} from 'koa-spring-web'
 import {redirect} from "../utils/redirect";
 import JSONObject from '../utils/fast_json'
 import rp from 'request-promise';
@@ -64,7 +64,7 @@ class UserController {
                 msg: "成功",
                 data: JSONObject.parse(res)
             }
-        }).catch(error=>{
+        }).catch(error => {
             console.log("接口错误")
             ctx.body = {
                 code: 500,
